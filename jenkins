@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+      stage('Executar Ansible') {
+        steps {
+          sh 'ansible-playbook playbook.yml'
+        }
+      }
+      stage('Executar Ruby') {
+        steps {
+          sh 'ruby s3_backend.rb'
+        }
+      }
+    }
+  }

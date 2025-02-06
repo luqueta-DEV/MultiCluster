@@ -1,0 +1,15 @@
+- name: Executar os comandos k3s
+  hosts: localhost
+  tasks:
+     - name: Aplica as configs necessarios no k3s   
+       command: kubectl apply -f k8s-config.yaml
+
+     - name: Executa o tf
+       command: terraform apply
+       args:
+       chdir: ./pulumi
+
+     - name: Executa o pulumi 
+       command: pulumi up -y
+       args:
+           chdir: ./pulumi  
