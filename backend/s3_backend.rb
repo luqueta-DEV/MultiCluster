@@ -1,4 +1,4 @@
-equire 'aws-sdk-s3'
+require 'aws-sdk-s3'
 
 
 s3_client = Aws::S3::Client.new(
